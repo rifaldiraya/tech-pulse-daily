@@ -137,8 +137,8 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
           <p className="max-w-xl sm:text-right">
-            Demo publication. Editorial content is sample material and does not
-            represent real breaking news.
+            {SITE.name} is an information and education website. Articles are
+            published to explain technology concepts and practices.
           </p>
         </div>
       </div>

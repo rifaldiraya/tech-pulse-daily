@@ -3,6 +3,8 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PopunderAd } from "@/components/PopunderAd";
+import { SocialBarAd } from "@/components/SocialBarAd";
 import { SITE, getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -105,6 +107,8 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <SocialBarAd />
+        <PopunderAd />
       </body>
     </html>
   );

@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import { AdSlot, LeaderboardAd } from "@/components/AdSlot";
 import { ArticleGrid } from "@/components/ArticleGrid";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { MarkdownContent } from "@/components/MarkdownContent";
+import { NativeAd } from "@/components/NativeAd";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { ShareButtons } from "@/components/ShareButtons";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -209,6 +211,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </figure>
 
         <div className="container-page mt-9">
+          <LeaderboardAd />
+        </div>
+
+        <div className="container-page mt-9">
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-start">
             <div className="min-w-0">
               <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-hairline pb-5">
@@ -224,6 +230,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <TableOfContents headings={headings} className="mb-8 lg:hidden" />
 
               <MarkdownContent html={html} className="max-w-[44rem]" />
+
+              <AdSlot unit="banner300x250" className="mt-10" />
 
               {article.tags.length > 0 ? (
                 <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-hairline pt-6">
@@ -315,6 +323,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 Related articles
               </h2>
               <ArticleGrid articles={related.map(toSummary)} className="mt-7" />
+              <NativeAd className="mt-10" />
             </div>
           </section>
         ) : null}

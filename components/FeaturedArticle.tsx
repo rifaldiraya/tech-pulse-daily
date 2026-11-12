@@ -62,7 +62,7 @@ export function FeaturedArticle({
   return (
     <article
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-hairline bg-navy",
+        "group relative flex flex-col overflow-hidden rounded-2xl border border-hairline bg-navy",
         className,
       )}
     >
@@ -70,7 +70,7 @@ export function FeaturedArticle({
         href={href}
         aria-hidden="true"
         tabIndex={-1}
-        className="relative block aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10]"
+        className="relative block grow aspect-[16/10] overflow-hidden sm:aspect-[16/9] lg:aspect-[16/10]"
       >
         <Image
           src={article.coverImage}
@@ -93,7 +93,7 @@ export function FeaturedArticle({
           </span>
         </span>
       </Link>
-      <div className="flex flex-wrap items-center justify-between gap-3 px-5 pb-5 sm:px-7 lg:px-8">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 px-5 pb-5 pt-4 sm:px-7 lg:px-8">
         <ArticleMeta article={article} className="text-slate-300" showAuthor />
         <Link
           href={href}

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Flame } from "lucide-react";
+import { LeaderboardAd } from "@/components/AdSlot";
 import { ArticleGrid } from "@/components/ArticleGrid";
+import { NativeAd } from "@/components/NativeAd";
 import { CategorySection } from "@/components/CategorySection";
 import { FeaturedArticle } from "@/components/FeaturedArticle";
 import { JsonLd } from "@/components/JsonLd";
@@ -158,6 +160,8 @@ export function HomeArchive({ page }: { page: number }) {
           </section>
         ) : null}
 
+        <LeaderboardAd className="mt-10" />
+
         <section
           id="latest"
           aria-labelledby="latest-heading"
@@ -187,6 +191,8 @@ export function HomeArchive({ page }: { page: number }) {
             articles={paginated.items.map(toSummary)}
             priorityCount={paginated.currentPage === 1 ? 3 : 0}
           />
+
+          <NativeAd className="mt-10" />
 
           <Pagination
             className="mt-10"
