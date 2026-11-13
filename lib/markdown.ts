@@ -122,6 +122,19 @@ function rehypeContentAttributes() {
   };
 }
 
+/**
+ * Article templates already print the headline as the page `<h1>`, so the copy
+ * of it that every Markdown body starts with is dropped to keep one H1 per page.
+ */
+function remarkStripLeadingTitle() {
+  return (tree: MdastRoot) => {
+    const [first] = tree.children;
+    if (first?.type === "heading" && first.depth === 1) {
+      tree.children.shift();
+    }
+  };
+}
+
 function mdastText(node: unknown): string {
   if (!node || typeof node !== "object") return "";
   const record = node as { value?: unknown; children?: unknown[] };
@@ -137,7 +150,11 @@ function mdastText(node: unknown): string {
  * same slugger used by rehype-slug, so anchor links always match rendered IDs.
  */
 export function extractHeadings(markdown: string): Heading[] {
-  const tree = unified().use(remarkParse).use(remarkGfm).parse(markdown) as MdastRoot;
+  const tree = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkStripLeadingTitle)
+    .parse(markdown) as MdastRoot;
   const slugger = new GithubSlugger();
   const headings: Heading[] = [];
 
@@ -157,6 +174,7 @@ const baseProcessor = () =>
   unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkStripLeadingTitle)
     .use(remarkRehype, { allowDangerousHtml: false })
     .use(rehypeYouTube)
     .use(rehypeSlug);

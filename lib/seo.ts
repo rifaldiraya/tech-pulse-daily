@@ -23,6 +23,33 @@ function publisher() {
   };
 }
 
+/**
+ * The house byline is the editorial desk, which search engines should read as an
+ * Organization tied to the real "about" page; outside contributors stay Persons
+ * that name the publication they write for.
+ */
+function authorEntity(authorName: string): JsonLd {
+  const siteUrl = getSiteUrl();
+  const sameAs = SITE.social
+    .map((item) => item.href)
+    .filter((href) => /^https?:\/\//i.test(href));
+
+  if (authorName.trim().toLowerCase() === SITE.author.toLowerCase()) {
+    return {
+      "@type": "Organization",
+      name: authorName,
+      url: absoluteUrl("/about"),
+      sameAs,
+    };
+  }
+
+  return {
+    "@type": "Person",
+    name: authorName,
+    worksFor: { "@type": "Organization", name: SITE.name, url: siteUrl },
+  };
+}
+
 export function buildWebsiteJsonLd(): JsonLd {
   const url = getSiteUrl();
   return {
@@ -51,16 +78,21 @@ export function buildArticleJsonLd(article: Article | ArticleSummary): JsonLd {
 
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": article.schemaType === "NewsArticle" ? "NewsArticle" : "Article",
     headline: article.title,
     description: article.description,
-    image: [image],
+    image: [
+      {
+        "@type": "ImageObject",
+        url: image,
+        width: 1200,
+        height: 750,
+        caption: article.coverImageAlt,
+      },
+    ],
     datePublished: new Date(article.publishedAt).toISOString(),
     dateModified: new Date(article.updatedAt || article.publishedAt).toISOString(),
-    author: {
-      "@type": "Person",
-      name: article.author,
-    },
+    author: authorEntity(article.author),
     publisher: publisher(),
     mainEntityOfPage: {
       "@type": "WebPage",

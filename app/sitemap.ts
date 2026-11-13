@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${siteUrl}/articles/${article.slug}`,
     lastModified: new Date(article.updatedAt || article.publishedAt),
-    changeFrequency: "monthly",
+    changeFrequency: article.schemaType === "NewsArticle" ? "daily" : "monthly",
     priority: 0.8,
   }));
 

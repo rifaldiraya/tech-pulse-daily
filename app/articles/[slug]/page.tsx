@@ -22,7 +22,7 @@ import {
 import { formatDate, getInitials } from "@/lib/format";
 import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo";
-import { absoluteUrl } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -56,13 +56,19 @@ export async function generateMetadata({
     description: article.description,
     keywords: [...article.tags, article.category],
     authors: [{ name: article.author }],
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      types: {
+        "application/rss+xml": "/feed.xml",
+      },
+    },
     openGraph: {
       type: "article",
       url: canonical,
       title: article.title,
       description: article.description,
-      siteName: "TechPulse",
+      siteName: SITE.name,
+      locale: SITE.locale,
       publishedTime,
       modifiedTime,
       authors: [article.author],
@@ -79,6 +85,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: "@techpulse",
+      creator: "@techpulse",
       title: article.title,
       description: article.description,
       images: [article.coverImage],

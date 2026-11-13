@@ -11,7 +11,7 @@ export const SITE = {
     { label: "X", href: "https://x.com/techpulse", handle: "@techpulse" },
     { label: "GitHub", href: "https://github.com/techpulse" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/techpulse" },
-    { label: "RSS", href: "/sitemap.xml" },
+    { label: "RSS", href: "/feed.xml" },
   ],
 } as const;
 

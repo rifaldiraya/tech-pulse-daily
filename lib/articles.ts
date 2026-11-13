@@ -78,6 +78,7 @@ function readFrontmatter(data: Record<string, unknown>, filename: string): Artic
     coverImageAlt: asString("coverImageAlt") || undefined,
     readingTime: Number.isFinite(readingTime) && readingTime > 0 ? Math.round(readingTime) : undefined,
     draft: data.draft === true || data.draft === "true",
+    schemaType: /^newsarticle$/i.test(asString("schemaType")) ? "NewsArticle" : "Article",
   };
 }
 
@@ -153,6 +154,7 @@ function loadArticles(): LoadResult {
         readingTime:
           frontmatter.readingTime ?? getReadingTime(content) ?? WORDS_PER_MINUTE,
         draft: frontmatter.draft ?? false,
+        schemaType: frontmatter.schemaType ?? "Article",
         content,
         searchText: plainContent.slice(0, 8000),
       });

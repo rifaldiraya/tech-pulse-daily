@@ -22,7 +22,11 @@ export interface ArticleFrontmatter {
   coverImageAlt?: string;
   readingTime?: number;
   draft?: boolean;
+  /** Structured-data type: `NewsArticle` for time-sensitive reporting. */
+  schemaType?: ArticleSchemaType;
 }
+
+export type ArticleSchemaType = "Article" | "NewsArticle";
 
 export interface Article {
   /** URL-safe identifier, derived from frontmatter.slug or the filename. */
@@ -42,6 +46,8 @@ export interface Article {
   coverImageAlt: string;
   readingTime: number;
   draft: boolean;
+  /** Structured-data type used by `buildArticleJsonLd`. */
+  schemaType: ArticleSchemaType;
   /** Raw Markdown body (without frontmatter). */
   content: string;
   /** Plain text used by client-side search. */
