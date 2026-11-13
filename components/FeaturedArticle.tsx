@@ -80,7 +80,7 @@ export function FeaturedArticle({
           sizes="(max-width: 1024px) 100vw, 66vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
-        <span className="absolute inset-0 bg-gradient-to-t from-[#050b18] via-[#050b18]/55 to-transparent" />
+        <span className="absolute inset-0 bg-gradient-to-t from-[#050b18] from-40% via-[#050b18]/65 to-transparent" />
         <span className="absolute inset-x-0 bottom-0 block p-5 sm:p-7 lg:p-8">
           <span className="inline-flex rounded-full bg-brand px-2.5 py-1 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-white">
             {article.category}
