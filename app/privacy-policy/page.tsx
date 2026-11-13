@@ -46,9 +46,10 @@ export default function PrivacyPolicyPage() {
             <p>
               TechPulse is a static website. It does not have user accounts,
               comments, a database, or a connected newsletter service. It does
-              not run analytics, advertising, or third-party tracking scripts.
-              The only persistent preference stored in your browser is your
-              light or dark theme choice.
+              not run analytics or build reader profiles. Advertising is served
+              by third-party networks described under Advertising below. The
+              only persistent preference the application stores in your browser
+              is your light or dark theme choice.
             </p>
 
             <h2>Information we do not collect</h2>
@@ -60,8 +61,9 @@ export default function PrivacyPolicyPage() {
                 disabled and not connected to any service.
               </li>
               <li>
-                No analytics identifiers, advertising identifiers, or
-                cross-site tracking.
+                No analytics identifiers, and no cross-site tracking operated by
+                the site. Third-party ad networks may set their own advertising
+                identifiers; see the Advertising section below.
               </li>
               <li>
                 No search history stored on a server. Search runs in your
@@ -106,10 +108,51 @@ export default function PrivacyPolicyPage() {
               transmitted, stored, or processed by this application.
             </p>
 
+            <h2>Advertising</h2>
+            <p>
+              Pages may include advertising served by third parties. TechPulse
+              currently uses Google AdSense and Adsterra. These networks may use
+              cookies, web beacons, and similar technologies to serve, measure,
+              and personalise ads based on your visits to this and other
+              websites.
+            </p>
+            <ul>
+              <li>
+                Google, as a third-party vendor, uses cookies to serve ads on
+                this site. Google&apos;s use of advertising cookies enables it
+                and its partners to serve ads based on your visit to this site
+                and/or other sites on the internet.
+              </li>
+              <li>
+                You can opt out of personalised advertising in{" "}
+                <a href="https://adssettings.google.com">
+                  Google Ads Settings
+                </a>
+                , or opt out of third-party vendor cookies for personalised ads
+                at{" "}
+                <a href="https://www.aboutads.info/choices/">
+                  aboutads.info
+                </a>
+                .
+              </li>
+              <li>
+                Adsterra may process technical data such as IP address and
+                browser information to deliver and measure ads, subject to its
+                own privacy policy.
+              </li>
+            </ul>
+            <p>
+              Ad blockers, browser settings, and regional consent controls may
+              prevent or limit these scripts. The site operator does not receive
+              the personal data that ad networks process.
+            </p>
+
             <h2>Cookies</h2>
             <p>
-              The application does not set cookies for analytics or advertising.
-              Hosting or content-delivery infrastructure may use strictly
+              The application itself sets no cookies. Advertising partners such
+              as Google and Adsterra may set cookies or similar identifiers in
+              your browser when ads load; see Advertising above for opt-out
+              links. Hosting or content-delivery infrastructure may use strictly
               necessary cookies or similar technology for security and
               performance; check your provider&apos;s disclosures.
             </p>

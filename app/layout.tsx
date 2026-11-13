@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
+import { AdSenseScript } from "@/components/AdSenseScript";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PopunderAd } from "@/components/PopunderAd";
@@ -97,6 +98,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <AdSenseScript />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} min-h-dvh bg-canvas font-sans antialiased`}

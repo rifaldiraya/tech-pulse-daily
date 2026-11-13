@@ -73,6 +73,7 @@ lib/
   search.ts                 Browser-safe search ranking
   seo.ts                    JSON-LD builders
   site.ts                   Site metadata and canonical URL helpers
+  ads.ts  adsense.ts        Adsterra and Google AdSense configuration
   format.ts  utils.ts       Formatting, pagination, slugs
 public/
   images/articles/          Cover images and placeholder
@@ -172,6 +173,22 @@ To unpublish, set `draft: true`. The article disappears from the homepage, categ
 ## Search
 
 Search runs entirely in the browser. `getSearchIndex()` serialises published article summaries and searchable text into the search route; `rankSearchDocuments()` scores matches across titles, tags, categories, excerpts, authors, and body text. Query state is reflected in `?q=`, and draft articles are never added to the index. No query leaves the browser.
+
+## Advertising
+
+Third-party ad units are configured in `lib/adsense.ts` and `lib/ads.ts`, and
+each one can be disabled by clearing its ID or flipping its `enabled` flag.
+
+- `lib/adsense.ts` — Google AdSense publisher ID. `components/AdSenseScript.tsx`
+  renders the loader in the root layout `<head>` of every page, which also
+  enables Auto ads after approval. `public/ads.txt` authorises the same
+  publisher ID and is served at `/ads.txt`.
+- `lib/ads.ts` — Adsterra banner, native, social bar, and popunder units.
+  Banner components live in `components/AdSlot.tsx` and are placed on the
+  homepage and article pages.
+
+Ad networks load third-party scripts and may set cookies. Review the privacy
+policy and any consent requirements for your jurisdiction before launch.
 
 ## Honest limitations
 
