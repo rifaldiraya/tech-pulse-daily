@@ -6,7 +6,7 @@ import { SOCIAL_BAR_AD } from "@/lib/ads";
  * layout rather than inside an ad container.
  */
 export function SocialBarAd() {
-  if (!SOCIAL_BAR_AD.scriptSrc) return null;
+  if (!SOCIAL_BAR_AD.enabled || !SOCIAL_BAR_AD.scriptSrc) return null;
 
   return (
     <Script

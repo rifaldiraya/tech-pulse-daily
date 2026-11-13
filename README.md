@@ -186,6 +186,12 @@ each one can be disabled by clearing its ID or flipping its `enabled` flag.
 - `lib/ads.ts` — Adsterra banner, native, social bar, and popunder units.
   Banner components live in `components/AdSlot.tsx` and are placed on the
   homepage and article pages.
+- The Adsterra social bar and popunder are **disabled** (`enabled: false`) and
+  their mounts in `app/layout.tsx` are commented out. Both are page-level
+  overlays: the popunder violates AdSense navigation policy, and the social bar
+  competes with AdSense anchor ads. The units and script URLs stay in the repo
+  so they can be switched back on by flipping the flags and uncommenting the
+  two components.
 
 Ad networks load third-party scripts and may set cookies. Review the privacy
 policy and any consent requirements for your jurisdiction before launch.

@@ -46,17 +46,30 @@ export const NATIVE_AD = {
   containerId: "",
 };
 
-/** Social Bar: full script URL from the unit's code snippet. */
+/**
+ * Social Bar: full script URL from the unit's code snippet.
+ *
+ * Kept disabled while Google AdSense Auto ads is running. The social bar is a
+ * fixed page-level overlay, so it competes with AdSense anchor ads for the same
+ * screen edge and makes the page look like it is stacking ad overlays.
+ * Set `enabled` back to true (and re-mount `<SocialBarAd />` in the root
+ * layout) to restore it.
+ */
 export const SOCIAL_BAR_AD = {
+  enabled: false,
   scriptSrc: "https://bauval.org/14/4c48b2d0da340522261686ddd24fdaee",
 };
 
 /**
  * Popunder opens a background tab on the visitor's first click anywhere on the
  * site. Flip `enabled` to false to drop it without touching the layout.
+ *
+ * Disabled because AdSense forbids pages that trigger pop-ups/pop-unders: it
+ * is a site-behavior violation that can suspend the account, independent of
+ * the Adsterra unit remaining in this file.
  */
 export const POPUNDER_AD = {
-  enabled: true,
+  enabled: false,
   scriptSrc: "https://abscloud.org/1/8f66b862f8ba4aeb67c414de8a403e20",
 };
 

@@ -4,8 +4,11 @@ import { GeistSans } from "geist/font/sans";
 import { AdSenseScript } from "@/components/AdSenseScript";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { PopunderAd } from "@/components/PopunderAd";
-import { SocialBarAd } from "@/components/SocialBarAd";
+// Disabled while AdSense Auto ads runs: both are page-level overlays that
+// conflict with AdSense anchor ads. Re-enable together with the `enabled`
+// flags in lib/ads.ts.
+// import { PopunderAd } from "@/components/PopunderAd";
+// import { SocialBarAd } from "@/components/SocialBarAd";
 import { SITE, getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -112,8 +115,12 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        {/* Adsterra overlays are parked while AdSense Auto ads is enabled.
+            Keep the components mounted only after re-enabling them in
+            lib/ads.ts — see the notes there.
         <SocialBarAd />
         <PopunderAd />
+        */}
       </body>
     </html>
   );
