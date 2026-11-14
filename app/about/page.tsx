@@ -4,6 +4,7 @@ import { ArrowRight, Info, Layers, PenLine, ShieldCheck } from "lucide-react";
 import { Newsletter } from "@/components/Newsletter";
 import { PageHeader } from "@/components/PageHeader";
 import { HOME_SECTIONS } from "@/lib/categories";
+import { NEWSLETTER } from "@/lib/newsletter";
 
 export const metadata: Metadata = {
   title: "About",
@@ -124,7 +125,10 @@ export default function AboutPage() {
               news organisation. The bylines are sample personas, the articles
               are educational content written for this project, and no story
               should be read as a real announcement or a report of current
-              events. Newsletter delivery is not connected.
+              events.{" "}
+              {NEWSLETTER.enabled
+                ? "The newsletter form posts to an external mailing service (Buttondown) and requires a confirmation email before a subscription is active."
+                : "Newsletter delivery is not connected."}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               The code is designed to be deployed as a fully static Next.js

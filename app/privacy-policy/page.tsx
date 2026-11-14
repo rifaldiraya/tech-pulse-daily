@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Info } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
+import { NEWSLETTER } from "@/lib/newsletter";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -45,11 +46,14 @@ export default function PrivacyPolicyPage() {
             <h2>Summary</h2>
             <p>
               TechPulse is a static website. It does not have user accounts,
-              comments, a database, or a connected newsletter service. It does
-              not run analytics or build reader profiles. Advertising is served
-              by third-party networks described under Advertising below. The
-              only persistent preference the application stores in your browser
-              is your light or dark theme choice.
+              comments, or a database. It does not run analytics or build reader
+              profiles.{" "}
+              {NEWSLETTER.enabled
+                ? "Newsletter subscriptions are handled by Buttondown, an external mailing service described under Newsletter below."
+                : "It does not have a connected newsletter service."}{" "}
+              Advertising is served by third-party networks described under
+              Advertising below. The only persistent preference the application
+              stores in your browser is your light or dark theme choice.
             </p>
 
             <h2>Information we do not collect</h2>
@@ -57,8 +61,10 @@ export default function PrivacyPolicyPage() {
               <li>No names, postal addresses, or phone numbers.</li>
               <li>No account credentials, because there are no accounts.</li>
               <li>
-                No newsletter subscriptions, because the newsletter form is
-                disabled and not connected to any service.
+                No newsletter subscriptions stored by this site
+                {NEWSLETTER.enabled
+                  ? "; email addresses you submit are sent directly to Buttondown, as described below."
+                  : ", because the newsletter form is disabled and not connected to any service."}
               </li>
               <li>
                 No analytics identifiers, and no cross-site tracking operated by
@@ -101,12 +107,30 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <h2>Newsletter</h2>
-            <p>
-              The newsletter section is a visual placeholder. Its submit button
-              is disabled and the page states that subscription functionality is
-              not connected. No email address entered into that field is
-              transmitted, stored, or processed by this application.
-            </p>
+            {NEWSLETTER.enabled ? (
+              <>
+                <p>
+                  The newsletter is delivered by Buttondown, an external mailing
+                  list service. When you submit the form, your email address is
+                  sent directly from your browser to Buttondown and stored on
+                  their systems; this application does not receive or store it.
+                </p>
+                <p>
+                  Buttondown sends a confirmation email before your subscription
+                  becomes active. Every issue includes an unsubscribe link, and
+                  you can also ask us to delete your address at any time.
+                  Buttondown&apos;s own privacy policy governs how they process
+                  subscriber data on our behalf.
+                </p>
+              </>
+            ) : (
+              <p>
+                The newsletter section is a visual placeholder. Its submit button
+                is disabled and the page states that subscription functionality
+                is not connected. No email address entered into that field is
+                transmitted, stored, or processed by this application.
+              </p>
+            )}
 
             <h2>Advertising</h2>
             <p>
@@ -158,8 +182,7 @@ export default function PrivacyPolicyPage() {
               The application itself sets no cookies. Advertising partners such
               as Google, Adsterra, and LeadsLeap may set cookies or similar
               identifiers in your browser when ads load; see Advertising above
-              for opt-out links. Hosting or content-delivery infrastructure may
-              use strictly
+              for opt-out links. Hosting or content-delivery infrastructure may use strictly
               necessary cookies or similar technology for security and
               performance; check your provider&apos;s disclosures.
             </p>

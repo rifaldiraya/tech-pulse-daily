@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Info } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
+import { NEWSLETTER } from "@/lib/newsletter";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -124,12 +125,25 @@ export default function TermsPage() {
             </p>
 
             <h2>8. Newsletter and interactive features</h2>
-            <p>
-              The newsletter form is disabled and not connected to any mailing
-              service. No subscription is created and no submission is stored.
-              Search and theme preference operate locally in your browser. Social
-              sharing links open third-party sites only when you choose them.
-            </p>
+            {NEWSLETTER.enabled ? (
+              <p>
+                Newsletter subscriptions are collected and delivered by
+                Buttondown, an external mailing list service. By submitting the
+                form you consent to your email address being stored by that
+                service for the purpose of sending the newsletter, and you can
+                unsubscribe from any issue. Search and theme preference operate
+                locally in your browser. Social sharing links open third-party
+                sites only when you choose them.
+              </p>
+            ) : (
+              <p>
+                The newsletter form is disabled and not connected to any mailing
+                service. No subscription is created and no submission is stored.
+                Search and theme preference operate locally in your browser.
+                Social sharing links open third-party sites only when you choose
+                them.
+              </p>
+            )}
 
             <h2>9. Limitation of liability</h2>
             <p>

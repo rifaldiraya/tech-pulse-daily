@@ -1,4 +1,5 @@
 import { Mail, ShieldCheck } from "lucide-react";
+import { NEWSLETTER } from "@/lib/newsletter";
 
 export function Newsletter() {
   return (
@@ -33,7 +34,16 @@ export function Newsletter() {
             <form
               className="flex flex-col gap-2.5 sm:flex-row"
               aria-describedby="newsletter-status"
+              {...(NEWSLETTER.enabled
+                ? { action: NEWSLETTER.action, method: "post" }
+                : {})}
             >
+              {NEWSLETTER.enabled ? (
+                <>
+                  <input type="hidden" name="embed" value="1" />
+                  <input type="hidden" name="tag" value="website" />
+                </>
+              ) : null}
               <label htmlFor="newsletter-email" className="sr-only">
                 Email address
               </label>
@@ -42,15 +52,24 @@ export function Newsletter() {
                 type="email"
                 name="email"
                 autoComplete="email"
+                required
                 placeholder="you@example.com"
                 className="h-12 w-full rounded-lg border border-white/15 bg-white/10 px-4 text-sm text-white placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40"
               />
               <button
                 type="submit"
-                disabled
-                aria-disabled="true"
-                className="h-12 shrink-0 cursor-not-allowed rounded-lg bg-brand px-6 text-sm font-semibold text-white opacity-70"
-                title="Newsletter delivery is not connected in this demo"
+                disabled={!NEWSLETTER.enabled}
+                aria-disabled={!NEWSLETTER.enabled}
+                className={`h-12 shrink-0 rounded-lg bg-brand px-6 text-sm font-semibold text-white transition ${
+                  NEWSLETTER.enabled
+                    ? "hover:bg-brand/90 focus:outline-none focus:ring-2 focus:ring-brand/40 focus:ring-offset-2 focus:ring-offset-navy"
+                    : "cursor-not-allowed opacity-70"
+                }`}
+                title={
+                  NEWSLETTER.enabled
+                    ? undefined
+                    : "Newsletter delivery is not connected in this demo"
+                }
               >
                 Subscribe
               </button>
@@ -61,11 +80,20 @@ export function Newsletter() {
             >
               <ShieldCheck className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
               <span>
-                <strong className="font-semibold text-slate-200">
-                  Demo notice:
-                </strong>{" "}
-                newsletter delivery is not connected yet. This form does not send
-                or store your email address.
+                {NEWSLETTER.enabled ? (
+                  <>
+                    You&apos;ll receive a confirmation email from Buttondown.
+                    Unsubscribe at any time, and we never sell your address.
+                  </>
+                ) : (
+                  <>
+                    <strong className="font-semibold text-slate-200">
+                      Demo notice:
+                    </strong>{" "}
+                    newsletter delivery is not connected yet. This form does not
+                    send or store your email address.
+                  </>
+                )}
               </span>
             </p>
           </div>

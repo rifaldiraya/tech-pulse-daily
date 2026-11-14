@@ -35,6 +35,29 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 In production this should be the full public origin, for example `https://techpulse.example.com`. On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback when the variable is absent.
 
+## Newsletter
+
+The newsletter form posts directly to [Buttondown](https://buttondown.com) using
+its public embed endpoint, so delivery works without an API route, a secret key,
+or any server code — the site stays fully static.
+
+1. Create a Buttondown account and note your username from
+   `https://buttondown.com/<username>`.
+2. Add it to `.env.local` and `.env.example`:
+
+```bash
+NEXT_PUBLIC_BUTTONDOWN_USERNAME=your-username
+```
+
+3. Rebuild. `lib/newsletter.ts` derives the form `action` from the username and
+   `components/Newsletter.tsx` switches from its disabled demo state to a live
+   form. Leave the variable empty to keep the demo notice.
+
+Submitting navigates to Buttondown's confirmation page, which sends the
+double opt-in email. Subscriber data lives in Buttondown, not in this
+repository. The privacy policy and terms pages read the same config and describe
+whichever mode is active, so they never contradict the form.
+
 ## Development
 
 ```bash
@@ -219,7 +242,7 @@ policy and any consent requirements for your jurisdiction before launch.
 
 ## Honest limitations
 
-- **Newsletter:** the subscription form is intentionally disabled and labelled as not connected. There is no mailing-list integration, no storage, and no fake success state.
+- **Newsletter:** the form is disabled and labelled as not connected until `NEXT_PUBLIC_BUTTONDOWN_USERNAME` is set. Once configured it posts straight to Buttondown and shows no fake success state — the browser leaves the site for Buttondown's confirmation page.
 - **Contact form:** there is no form handler or inbox. The contact page lists illustrative `.example` addresses and explains what to configure in a real deployment.
 - **Sample content:** all articles are educational/editorial demonstrations, not real reporting. Bylines are sample personas. Do not present them as current news.
 - **View counts:** "Popular" is editor metadata, not analytics. The site does not collect reader behaviour.
