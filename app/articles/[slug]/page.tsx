@@ -7,8 +7,8 @@ import { AdSlot, LeaderboardAd } from "@/components/AdSlot";
 import { ArticleGrid } from "@/components/ArticleGrid";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { LeadsLeapAd } from "@/components/LeadsLeapAd";
 import { MarkdownContent } from "@/components/MarkdownContent";
-import { NativeAd } from "@/components/NativeAd";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { ShareButtons } from "@/components/ShareButtons";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -331,7 +331,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 Related articles
               </h2>
               <ArticleGrid articles={related.map(toSummary)} className="mt-7" />
-              <NativeAd className="mt-10" />
+              <LeadsLeapAd ads={4} className="mt-10" />
             </div>
           </section>
         ) : null}

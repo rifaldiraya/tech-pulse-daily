@@ -74,6 +74,7 @@ lib/
   seo.ts                    JSON-LD builders
   site.ts                   Site metadata and canonical URL helpers
   ads.ts  adsense.ts        Adsterra and Google AdSense configuration
+  leadsleap.ts              LeadsLeap PPC widget configuration and palette
   format.ts  utils.ts       Formatting, pagination, slugs
 public/
   images/articles/          Cover images and placeholder
@@ -176,8 +177,9 @@ Search runs entirely in the browser. `getSearchIndex()` serialises published art
 
 ## Advertising
 
-Third-party ad units are configured in `lib/adsense.ts` and `lib/ads.ts`, and
-each one can be disabled by clearing its ID or flipping its `enabled` flag.
+Third-party ad units are configured in `lib/adsense.ts`, `lib/ads.ts`, and
+`lib/leadsleap.ts`; each one can be disabled by clearing its ID or flipping its
+`enabled` flag.
 
 - `lib/adsense.ts` — Google AdSense publisher ID. `components/AdSenseScript.tsx`
   renders the loader in the root layout `<head>` of every page, which also
@@ -186,6 +188,25 @@ each one can be disabled by clearing its ID or flipping its `enabled` flag.
 - `lib/ads.ts` — Adsterra banner, native, social bar, and popunder units.
   Banner components live in `components/AdSlot.tsx` and are placed on the
   homepage and article pages.
+- `lib/leadsleap.ts` — LeadsLeap PPC Ad Widget. Set `username` to the value of
+  `ll_r` in the code LeadsLeap generates (Member Area → PPC Ad Widget → Get
+  Code); while it is empty every `components/LeadsLeapAd.tsx` slot renders
+  nothing. The widget is mounted after the latest-articles grid on the
+  homepage and at the end of each article. It renders in a sandboxed iframe
+  because its loader uses `document.write`, and it reports its own height back
+  over `postMessage` so the slot never scrolls or leaves a gap. Colours come
+  from `LEADSLEAP_PALETTES` and follow the site theme; below 480px the widget
+  drops to 2 ads. Recommended dashboard settings: **Responsive** widget, **4**
+  ads (2 on narrow screens), colours matching the palettes, **Bold** checked,
+  **Hide Header** unchecked (keeps the third-party disclosure). The slot
+  replaces the Adsterra `NativeAd` position; re-add `<NativeAd />` next to it
+  if both networks should run.
+
+  Two LeadsLeap quirks are worth knowing. `ll_nm` ("Hide Your Affiliate Link")
+  does not remove the "Add your links FREE" promo — LeadsLeap keeps it in the
+  header and moves it to the footer when the header is hidden. And `ll_np`
+  ("Hide Pro Badge") has no effect for a free account; the badge lives inside
+  the "1234 visits" row, so set `hideInfoLine: true` to drop the whole line.
 - The Adsterra social bar and popunder are **disabled** (`enabled: false`) and
   their mounts in `app/layout.tsx` are commented out. Both are page-level
   overlays: the popunder violates AdSense navigation policy, and the social bar

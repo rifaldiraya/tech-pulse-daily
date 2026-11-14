@@ -111,10 +111,10 @@ export default function PrivacyPolicyPage() {
             <h2>Advertising</h2>
             <p>
               Pages may include advertising served by third parties. TechPulse
-              currently uses Google AdSense and Adsterra. These networks may use
-              cookies, web beacons, and similar technologies to serve, measure,
-              and personalise ads based on your visits to this and other
-              websites.
+              currently uses Google AdSense, Adsterra, and LeadsLeap. These
+              networks may use cookies, web beacons, and similar technologies
+              to serve, measure, and personalise ads based on your visits to
+              this and other websites.
             </p>
             <ul>
               <li>
@@ -140,6 +140,12 @@ export default function PrivacyPolicyPage() {
                 browser information to deliver and measure ads, subject to its
                 own privacy policy.
               </li>
+              <li>
+                LeadsLeap widgets show sponsored links supplied by its
+                advertisers. Links open the advertiser&apos;s site, and LeadsLeap
+                may record clicks and technical data under its own privacy
+                policy.
+              </li>
             </ul>
             <p>
               Ad blockers, browser settings, and regional consent controls may
@@ -150,9 +156,10 @@ export default function PrivacyPolicyPage() {
             <h2>Cookies</h2>
             <p>
               The application itself sets no cookies. Advertising partners such
-              as Google and Adsterra may set cookies or similar identifiers in
-              your browser when ads load; see Advertising above for opt-out
-              links. Hosting or content-delivery infrastructure may use strictly
+              as Google, Adsterra, and LeadsLeap may set cookies or similar
+              identifiers in your browser when ads load; see Advertising above
+              for opt-out links. Hosting or content-delivery infrastructure may
+              use strictly
               necessary cookies or similar technology for security and
               performance; check your provider&apos;s disclosures.
             </p>

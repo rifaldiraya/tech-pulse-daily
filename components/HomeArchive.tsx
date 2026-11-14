@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Flame } from "lucide-react";
 import { LeaderboardAd } from "@/components/AdSlot";
 import { ArticleGrid } from "@/components/ArticleGrid";
-import { NativeAd } from "@/components/NativeAd";
+import { LeadsLeapAd } from "@/components/LeadsLeapAd";
 import { CategorySection } from "@/components/CategorySection";
 import { FeaturedArticle } from "@/components/FeaturedArticle";
 import { JsonLd } from "@/components/JsonLd";
@@ -192,7 +192,7 @@ export function HomeArchive({ page }: { page: number }) {
             priorityCount={paginated.currentPage === 1 ? 3 : 0}
           />
 
-          <NativeAd className="mt-10" />
+          <LeadsLeapAd ads={4} className="mt-10" />
 
           <Pagination
             className="mt-10"
