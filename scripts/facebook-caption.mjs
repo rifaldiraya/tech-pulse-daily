@@ -21,6 +21,13 @@ const domain = (flag("domain") || process.env.NEXT_PUBLIC_SITE_URL || "https://e
   "",
 );
 
+// Captions get copied into a post, so a dead placeholder link is worse than a loud warning.
+if (/example\.(com|org|net)$|\/\/localhost/.test(domain)) {
+  console.error(
+    `[captions] Warning: "${domain}" is a placeholder. Pass --domain or set NEXT_PUBLIC_SITE_URL before posting.`,
+  );
+}
+
 const MAX_HASHTAGS = 6;
 
 function hashtag(value) {
