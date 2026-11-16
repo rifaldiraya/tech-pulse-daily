@@ -8,7 +8,7 @@ When Capacity Disappears: Designing Systems That Degrade Instead of Collapse
 Microsoft's outage was a capacity problem, not a traffic problem. That distinction changes how you design load shedding, backpressure and recovery.
 
 Full breakdown (9 min read):
-👉 https://example.com/articles/cloud-capacity-failure-design
+👉 https://tech-pulse-daily-two.vercel.app/articles/cloud-capacity-failure-design
 
 #Reliability #CapacityPlanning #IncidentResponse #GracefulDegradation #SRE #TechPulseDaily
 ```
@@ -19,7 +19,7 @@ When Capacity Disappears: Designing Systems That Degrade Instead of Collapse
 
 Microsoft's outage was a capacity problem, not a traffic problem. That distinction changes how you design load shedding, backpressure and recovery.
 
-👉 https://example.com/articles/cloud-capacity-failure-design
+👉 https://tech-pulse-daily-two.vercel.app/articles/cloud-capacity-failure-design
 
 #Reliability #CapacityPlanning #IncidentResponse
 ```

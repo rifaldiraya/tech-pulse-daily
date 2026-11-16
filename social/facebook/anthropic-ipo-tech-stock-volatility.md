@@ -20,7 +20,7 @@ Angka di dalam S-1 juga tidak ringan: pendapatan sembilan bulan $33,24 miliar, r
 Pertanyaannya bukan lagi apakah AI itu nyata. Pertanyaannya: apakah publik siap menanggung risikonya?
 
 Bacaan lengkap 8 menit, termasuk tabel kesepakatan, risiko yang diakui Anthropic sendiri, dan yang perlu dipantau sampai hari debut:
-👉 https://example.com/articles/anthropic-ipo-tech-stock-volatility
+👉 https://tech-pulse-daily-two.vercel.app/articles/anthropic-ipo-tech-stock-volatility
 
 #Anthropic #IPO #SahamTeknologi #Nvidia #Nasdaq #AI
 ```
@@ -30,7 +30,7 @@ Bacaan lengkap 8 menit, termasuk tabel kesepakatan, risiko yang diakui Anthropic
 Anthropic cetak harga IPO Rabu ini dan mulai diperdagangkan Kamis di Nasdaq sebagai ANT — valuasi $1,405 triliun. Masalahnya, saham teknologi justru turun duluan: Nasdaq-100 futures -1,5%, Nvidia -4%.
 
 Kenapa pasar gugup menjelang pencatatan terbesar sektor AI tahun ini?
-👉 https://example.com/articles/anthropic-ipo-tech-stock-volatility
+👉 https://tech-pulse-daily-two.vercel.app/articles/anthropic-ipo-tech-stock-volatility
 
 #Anthropic #IPO #SahamTeknologi
 ```
@@ -53,7 +53,7 @@ The S-1 is just as loud: $33.24B of nine-month revenue, a $23.29B net loss in Q3
 The question is no longer whether AI is real. It is whether the public market is ready to carry the risk.
 
 Full 8-minute breakdown, with the deal table, the risks Anthropic admits to, and what to watch before the debut:
-👉 https://example.com/articles/anthropic-ipo-tech-stock-volatility
+👉 https://tech-pulse-daily-two.vercel.app/articles/anthropic-ipo-tech-stock-volatility
 
 #Anthropic #IPO #TechStocks #Nvidia #Nasdaq #AI
 ```
@@ -63,7 +63,7 @@ Full 8-minute breakdown, with the deal table, the risks Anthropic admits to, and
 Anthropic prices on Wednesday and trades on Thursday as ANT, at a $1.405 trillion valuation. Tech stocks are falling first: Nasdaq-100 futures -1.5%, Nvidia -4%.
 
 Why the market is nervous about the year's biggest AI listing:
-👉 https://example.com/articles/anthropic-ipo-tech-stock-volatility
+👉 https://tech-pulse-daily-two.vercel.app/articles/anthropic-ipo-tech-stock-volatility
 
 #Anthropic #IPO #TechStocks
 ```

@@ -33,7 +33,7 @@ Set the canonical URL for your deployment in `.env.local`:
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-In production this should be the full public origin, for example `https://techpulse.example.com`. On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback when the variable is absent.
+In production this should be the full public origin, for example `https://tech-pulse-daily-two.vercel.app`. On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback when the variable is absent.
 
 ## Newsletter
 
@@ -193,6 +193,12 @@ A category page is generated only when at least one published article uses it.
 5. Deploy. Static routes for the new article are generated during the build from `generateStaticParams()`.
 
 To unpublish, set `draft: true`. The article disappears from the homepage, category pages, related reading, search, and the sitemap on the next build.
+
+## Social captions
+
+`npm run fb:captions -- --slug <slug> --out social/facebook/<slug>.md` writes a long and a short caption for one article, built from its title, description, and tags. The link origin comes from `--domain`, then `NEXT_PUBLIC_SITE_URL` (loaded from `.env.local`), and only then the `https://example.com` placeholder, which triggers a warning because a dead link in a published post is worse than a noisy build.
+
+The script refuses to overwrite a file that no longer matches its own template, so hand-written editorial copy survives later runs. Pass `--force` when you do want the template back.
 
 ## Search
 

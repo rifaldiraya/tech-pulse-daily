@@ -1,11 +1,20 @@
 #!/usr/bin/env node
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const ARTICLES_DIR = join(ROOT, "content", "articles");
+
+// Same env files Next.js reads, so the canonical domain only has to live in one place.
+for (const file of [".env.local", ".env"]) {
+  const envPath = join(ROOT, file);
+  if (existsSync(envPath) && !process.env.NEXT_PUBLIC_SITE_URL) {
+    process.loadEnvFile(envPath);
+    if (process.env.NEXT_PUBLIC_SITE_URL) break;
+  }
+}
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -118,6 +127,17 @@ const output = `# Facebook captions\n\n${blocks.join("\n\n---\n\n")}\n`;
 
 if (out) {
   const target = resolve(ROOT, out);
+  const handWritten =
+    existsSync(target) && !/^## Long caption$/m.test(readFileSync(target, "utf8"));
+
+  // Overwriting editorial copy with the plain template is silent data loss; make it explicit.
+  if (handWritten && !args.includes("--force")) {
+    console.error(
+      `[captions] ${out} looks hand-written. Re-run with --force to overwrite it with the template.`,
+    );
+    process.exit(1);
+  }
+
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, output, "utf8");
   console.error(`Wrote ${out} (${selected.length} caption set(s)).`);

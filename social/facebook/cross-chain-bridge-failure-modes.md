@@ -19,7 +19,7 @@ Akar masalahnya satu: bridge adalah sistem konsensus kedua yang dipasang di atas
 Ada checklist konkret di akhir artikel untuk dipakai sebelum mempercayai bridge mana pun.
 
 Bacaan lengkap 9 menit:
-👉 https://example.com/articles/cross-chain-bridge-failure-modes
+👉 https://tech-pulse-daily-two.vercel.app/articles/cross-chain-bridge-failure-modes
 
 #Blockchain #CrossChain #Keamanan #Kripto #Bridge #TechPulseDaily
 ```
@@ -29,7 +29,7 @@ Bacaan lengkap 9 menit:
 Jembatan lintas-chain kalah dengan lima pola yang sama: pesan tak terverifikasi, penandatangan yang juga operator, state gagal-terbuka, mint tanpa batas, dan tidak ada batas keluar. Wormhole, Ronin, Nomad, BNB Bridge — semuanya jatuh di salah satunya.
 
 Perbaikannya arsitektural, bukan audit tambahan:
-👉 https://example.com/articles/cross-chain-bridge-failure-modes
+👉 https://tech-pulse-daily-two.vercel.app/articles/cross-chain-bridge-failure-modes
 
 #Blockchain #CrossChain #Keamanan
 ```
@@ -51,7 +51,7 @@ The root cause is structural: a bridge is a second consensus system bolted onto 
 The piece closes with a concrete checklist to run before you trust any bridge.
 
 Full 9-minute breakdown:
-👉 https://example.com/articles/cross-chain-bridge-failure-modes
+👉 https://tech-pulse-daily-two.vercel.app/articles/cross-chain-bridge-failure-modes
 
 #Blockchain #CrossChain #Security #Crypto #Bridges #TechPulseDaily
 ```
@@ -61,7 +61,7 @@ Full 9-minute breakdown:
 Bridges lose funds to the same five patterns: unverified messages, overlapping signers, fail-open state, uncapped minting and no exit limit. Wormhole, Ronin, Nomad, BNB Bridge — every one of them landed on one.
 
 The fix is architectural, not another audit:
-👉 https://example.com/articles/cross-chain-bridge-failure-modes
+👉 https://tech-pulse-daily-two.vercel.app/articles/cross-chain-bridge-failure-modes
 
 #Blockchain #CrossChain #Security
 ```
